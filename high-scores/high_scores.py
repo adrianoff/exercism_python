@@ -1,5 +1,5 @@
 def latest(scores):
-    return scores.pop()
+    return scores[-1]
 
 
 def personal_best(scores):
@@ -7,6 +7,4 @@ def personal_best(scores):
 
 
 def personal_top_three(scores):
-    s = list(set(scores))
-    s.sort()
-    return [s.pop(), s.pop(), s.pop()]
+    return sorted(scores, reverse=True)[:3]

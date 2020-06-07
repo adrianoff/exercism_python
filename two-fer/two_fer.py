@@ -1,2 +1,2 @@
-def two_fer(name=None):
-    return "One for %s, one for me." % (name if name is not None else 'you')
+def two_fer(name='you'):
+    return f'One for {name}, one for me.'

@@ -1,5 +1,5 @@
 def recite(start_verse, end_verse):
-    tmpl = 'On the %s day of Christmas my true love gave to me: %s.'
+    firstline = 'On the %s day of Christmas my true love gave to me: '
     days = [
         'first',
         'second',
@@ -30,8 +30,9 @@ def recite(start_verse, end_verse):
         'twelve Drummers Drumming',
     ]
 
-    for i, day in enumerate(days[start_verse-1:end_verse-1]):
+    song = [firstline % days[start_verse-1]]
 
-        items_str = [item for item in items[:i]]
+    for i in range(start_verse-1, -1, -1):
+        song.append(items[i] + ', ')
 
-    pass
+    return song

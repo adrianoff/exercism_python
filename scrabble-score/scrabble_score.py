@@ -1,25 +1,11 @@
-scores_dict = {
-    'aeioulnrst': 1,
-    'dg': 2,
-    'bcmp': 3,
-    'fhvwy': 4,
-    'k': 5,
-    'jx': 8,
-    'qz': 10
-}
+POINTS = dict([(x, 1) for x in 'AEIOULNRST'] +
+              [(x, 2) for x in 'DG'] +
+              [(x, 3) for x in 'BCMP'] +
+              [(x, 4) for x in 'FHVWY'] +
+              [(x, 5) for x in 'K'] +
+              [(x, 8) for x in 'JX'] +
+              [(x, 10) for x in 'QZ'])
 
 
 def score(word: str):
-    score_total = 0
-
-    for c in word.lower():
-        for key in scores_dict.keys():
-            if c in key:
-                score_total += scores_dict[key]
-                break
-
-    return score_total
-
-
-
-print(score('cabbage'))
+    return sum([POINTS[i] for i in word.upper()])
